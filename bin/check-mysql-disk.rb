@@ -85,9 +85,9 @@ class CheckMysqlDisk < Sensu::Plugin::Check::CLI
       db_pass = config[:pass]
     end
     db_host = config[:host]
-    disk_size = config[:size]
-    critical_usage = config[:crit]
-    warning_usage = config[:warn]
+    disk_size = config[:size].to_f
+    critical_usage = config[:crit].to_f
+    warning_usage = config[:warn].to_f
 
     if [db_host, db_user, db_pass, disk_size].any?(&:nil?)
       unknown 'Must specify host, user, password and size'
