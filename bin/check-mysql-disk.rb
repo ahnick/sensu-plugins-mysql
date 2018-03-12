@@ -80,12 +80,14 @@ class CheckMysqlDisk < Sensu::Plugin::Check::CLI
       section = ini[config[:ini_section]]
       db_user = section['user']
       db_pass = section['password']
+      db_host = section['host']
+      disk_size = section['size'].to_f
     else
       db_user = config[:user]
       db_pass = config[:pass]
+      db_host = config[:host]
+      disk_size = config[:size].to_f
     end
-    db_host = config[:host]
-    disk_size = config[:size].to_f
     critical_usage = config[:crit].to_f
     warning_usage = config[:warn].to_f
 
