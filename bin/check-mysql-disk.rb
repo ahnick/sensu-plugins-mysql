@@ -44,7 +44,7 @@ class CheckMysqlDisk < Sensu::Plugin::Check::CLI
          short: '-s',
          long: '--size=VALUE',
          description: 'Database size',
-         proc: proc(&:to_f),
+         proc: proc(&:to_f)
 
   option :warn,
          short: '-w',
